@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LAB 5 - Documentation Index</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      padding: 2rem;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+    }
+
+    header {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    header p {
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+
+    .content {
+      padding: 2rem;
+    }
+
+    .section {
+      margin-bottom: 3rem;
+    }
+
+    .section h2 {
+      color: #2c3e50;
+      border-bottom: 3px solid #3498db;
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+      font-size: 1.5rem;
+    }
+
+    .file-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .file-card {
+      background: #f8f9fa;
+      border: 2px solid #e9ecef;
+      border-radius: 8px;
+      padding: 1.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .file-card:hover {
+      border-color: #3498db;
+      box-shadow: 0 4px 12px rgba(52, 152, 219, 0.15);
+      transform: translateY(-2px);
+    }
+
+    .file-card h3 {
+      color: #2c3e50;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .file-icon {
+      font-size: 1.5rem;
+    }
+
+    .file-card p {
+      color: #666;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .file-size {
+      display: inline-block;
+      background: #e3f2fd;
+      color: #1976d2;
+      padding: 0.25rem 0.75rem;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    .section-intro {
+      background: #ecf7ff;
+      border-left: 4px solid #3498db;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      border-radius: 6px;
+    }
+
+    .section-intro h3 {
+      color: #1976d2;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-intro p {
+      color: #555;
+      line-height: 1.6;
+    }
+
+    .key-features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .feature {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .feature-icon {
+      font-size: 1.5rem;
+      flex-shrink: 0;
+    }
+
+    .feature-text h4 {
+      color: #2c3e50;
+      margin-bottom: 0.25rem;
+      font-size: 0.95rem;
+    }
+
+    .feature-text p {
+      color: #666;
+      font-size: 0.85rem;
+    }
+
+    .quick-links {
+      background: #f0f9ff;
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .quick-links h3 {
+      color: #2c3e50;
+      margin-bottom: 1rem;
+    }
+
+    .link-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+
+    .link-list a {
+      color: #3498db;
+      text-decoration: none;
+      padding: 0.75rem;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+    }
+
+    .link-list a:hover {
+      background: #e3f2fd;
+      transform: translateX(4px);
+    }
+
+    .getting-started {
+      background: #f0fff4;
+      border: 2px solid #48bb78;
+      border-radius: 8px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .getting-started h3 {
+      color: #2f855a;
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .step {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .step-number {
+      background: #48bb78;
+      color: white;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      flex-shrink: 0;
+    }
+
+    .step-content h4 {
+      color: #2f855a;
+      margin-bottom: 0.25rem;
+    }
+
+    .step-content p {
+      color: #555;
+      font-size: 0.9rem;
+    }
+
+    code {
+      background: #f5f5f5;
+      padding: 0.2rem 0.4rem;
+      border-radius: 3px;
+      font-family: 'Courier New', monospace;
+      font-size: 0.9rem;
+    }
+
+    footer {
+      background: #f8f9fa;
+      border-top: 1px solid #e9ecef;
+      padding: 2rem;
+      text-align: center;
+      color: #666;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .stat {
+      text-align: center;
+      padding: 1rem;
+      background: #f8f9fa;
+      border-radius: 8px;
+    }
+
+    .stat-value {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #3498db;
+    }
+
+    .stat-label {
+      color: #666;
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🚀 React Advanced State Management</h1>
+      <p>LAB 5 - Complete Solution Documentation</p>
+    </header>
+
+    <div class="content">
+      <!-- Stats -->
+      <div class="stats">
+        <div class="stat">
+          <div class="stat-value">15+</div>
+          <div class="stat-label">Files Created</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">1650+</div>
+          <div class="stat-label">Lines of Code</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">2</div>
+          <div class="stat-label">Major Parts</div>
+        </div>
+      </div>
+
+      <!-- Getting Started -->
+      <div class="getting-started">
+        <h3>🎯 Getting Started</h3>
+        <div class="steps">
+          <div class="step">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <h4>Install Dependencies</h4>
+              <p><code>npm install</code></p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <h4>Start Dev Server</h4>
+              <p><code>npm run dev</code></p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-number">3</div>
+            <div class="step-content">
+              <h4>Open Browser</h4>
+              <p>http://localhost:3000</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PART 1 -->
+      <div class="section">
+        <h2>📝 PART 1: useReducer with FSM Pattern</h2>
+
+        <div class="section-intro">
+          <h3>Overview</h3>
+          <p>
+            Refactor complex state management from multiple useState to a single useReducer
+            with Finite State Machine pattern. Learn how to prevent "impossible states" and
+            create predictable, testable components.
+          </p>
+        </div>
+
+        <div class="key-features">
+          <div class="feature">
+            <div class="feature-icon">⚙️</div>
+            <div class="feature-text">
+              <h4>Finite State Machine</h4>
+              <p>4 states with explicit transitions and validation</p>
+            </div>
+          </div>
+          <div class="feature">
+            <div class="feature-icon">🛡️</div>
+            <div class="feature-text">
+              <h4>Impossible State Prevention</h4>
+              <p>No more conflicting state combinations</p>
+            </div>
+          </div>
+          <div class="feature">
+            <div class="feature-icon">🧪</div>
+            <div class="feature-text">
+              <h4>Testable Logic</h4>
+              <p>Pure reducer function easy to test</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="file-grid">
+          <div class="file-card">
+            <h3><span class="file-icon">⚙️</span> userReducer.js</h3>
+            <p>
+              Core reducer logic with FSM implementation. Defines initial state, action types,
+              and transition rules. Includes helper functions for creating actions.
+            </p>
+            <span class="file-size">220 lines</span>
+          </div>
+
+          <div class="file-card">
+            <h3><span class="file-icon">⚛️</span> UserProfile.jsx</h3>
+            <p>
+              React component using useReducer hook. Demonstrates data fetching, error handling,
+              and conditional rendering based on FSM states.
+            </p>
+            <span class="file-size">140 lines</span>
+          </div>
+
+          <div class="file-card">
+            <h3><span class="file-icon">🎨</span> UserProfile.css</h3>
+            <p>
+              Complete styling for all states: loading spinner, success profile card, error
+              state with retry button. Fully responsive design.
+            </p>
+            <span class="file-size">180 lines</span>
+          </div>
+        </div>
+
+        <div class="quick-links">
+          <h3>📚 Key Concepts</h3>
+          <div class="link-list">
+            <a href="#fsm">📊 FSM Diagram</a>
+            <a href="#transitions">🔄 State Transitions</a>
+            <a href="#validation">✅ Transition Validation</a>
+            <a href="#effects">🎣 useEffect Integration</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- PART 2 -->
+      <div class="section">
+        <h2>🛒 PART 2: Redux Toolkit - Shopping Cart</h2>
+
+        <div class="section-intro">
+          <h3>Overview</h3>
+          <p>
+            Build a complete shopping cart using Redux Toolkit. Learn global state management,
+            memoized selectors for performance optimization, and immutable updates with Immer.
+          </p>
+        </div>
+
+        <div class="key-features">
+          <div class="feature">
+            <div class="feature-icon">📦</div>
+            <div class="feature-text">
+              <h4>Redux Toolkit</h4>
+              <p>Modern Redux with configureStore and createSlice</p>
+            </div>
+          </div>
+          <div class="feature">
+            <div class="feature-icon">⚡</div>
+            <div class="feature-text">
+              <h4>Memoized Selectors</h4>
+              <p>Performance optimization with createSelector</p>
+            </div>
+          </div>
+          <div class="feature">
+            <div class="feature-icon">🔒</div>
+            <div class="feature-text">
+              <h4>Immutability</h4>
+              <p>Safe mutations with Immer middleware</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="file-grid">
+          <div class="file-card">
+            <h3><span class="file-icon">🔷</span> cartSlice.js</h3>
+            <p>
+              Redux Toolkit slice with state, reducers (addItem, removeItem, updateItemQuantity,
+              clearCart), and automatic totalAmount calculation. Uses Immer for safe mutations.
+            </p>
+            <span class="file-size">160 lines</span>
+          </div>
+
+          <div class="file-card">
+            <h3><span class="file-icon">🎯</span> cartSelectors.js</h3>
+            <p>
+              Memoized selectors using createSelector. Critical for performance - tax calculation
+              only recalculates when totalAmount changes. Includes comprehensive selector suite.
+            </p>
+            <span class="file-size">140 lines</span>
+          </div>
+
+          <div class="file-card">
+            <h3><span class="file-icon">🛍️</span> ShoppingCart.jsx</h3>
+            <p>
+              Complete cart UI with product catalog, cart items display, quantity controls, and
+              summary section. Demonstrates useSelector and useDispatch patterns.
+            </p>
+            <span class="file-size">220 lines</span>
+          </div>
+
+          <div class="file-card">
+            <h3><span class="file-icon">🎨</span> ShoppingCart.css</h3>
+            <p>
+              Comprehensive styling including grid layout, product cards, cart items, summary
+              section. Fully responsive with smooth animations and hover effects.
+            </p>
+            <span class="file-size">300 lines</span>
+          </div>
+
+          <div class="file-card">
+            <h3><span class="file-icon">🏪</span> store/index.js</h3>
+            <p>
+              Redux store configuration using configureStore. Sets up middleware, DevTools,
+              and reducer composition. Easy to extend with additional slices.
+            </p>
+            <span class="file-size">30 lines</span>
+          </div>
+        </div>
+
+        <div class="quick-links">
+          <h3>📚 Key Concepts</h3>
+          <div class="link-list">
+            <a href="#slice">🔷 createSlice</a>
+            <a href="#selectors">🎯 Memoized Selectors</a>
+            <a href="#immutability">🔒 Immutability</a>
+            <a href="#performance">⚡ Performance Tips</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Documentation Files -->
+      <div class="section">
+        <h2>📖 Documentation Files</h2>
+
+        <div class="file-grid">
+          <div class="file-card">
+            <h3><span class="file-icon">📋</span> README.md</h3>
+            <p>
+              Complete project documentation including setup instructions, detailed explanations
+              of both parts, FSM diagrams, Redux patterns, best practices, and learning resources.
+            </p>
+            <span class="file-size">Comprehensive</span>
+          </div>
+
+          <div class="file-card">
+            <h3><span class="file-icon">💡</span> USAGE_EXAMPLES.js</h3>
+            <p>
+              Real-world usage examples for both useReducer and Redux. Includes 12+ scenarios
+              demonstrating different patterns and common use cases.
+            </p>
+            <span class="file-size">300+ lines</span>
+          </div>
+
+          <div class="file-card">
+            <h3><span class="file-icon">⚡</span> QUICK_REFERENCE.js</h3>
+            <p>
+              Quick reference guide with diagrams, comparison tables, debugging tips, common
+              mistakes, and professional file organization patterns.
+            </p>
+            <span class="file-size">400+ lines</span>
+          </div>
+
+          <div class="file-card">
+            <h3><span class="file-icon">📊</span> SOLUTION_SUMMARY.js</h3>
+            <p>
+              High-level overview of the entire solution. Project structure, file descriptions,
+              testing checklist, and learning outcomes summary.
+            </p>
+            <span class="file-size">400+ lines</span>
+          </div>
+
+          <div class="file-card">
+            <h3><span class="file-icon">🎓</span> this file</h3>
+            <p>
+              Interactive HTML documentation index. Provides quick navigation to all resources
+              and getting started guide with key statistics.
+            </p>
+            <span class="file-size">HTML</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Configuration Files -->
+      <div class="section">
+        <h2>⚙️ Configuration Files</h2>
+
+        <div class="file-grid">
+          <div class="file-card">
+            <h3><span class="file-icon">📦</span> package.json</h3>
+            <p>
+              Dependencies and npm scripts. Includes React, Redux Toolkit, Vite, and DevTools.
+              Scripts for dev, build, preview, and lint.
+            </p>
+          </div>
+
+          <div class="file-card">
+            <h3><span class="file-icon">⚡</span> vite.config.js</h3>
+            <p>
+              Vite configuration for fast development and optimized production builds. React
+              plugin, dev server settings, and build output configuration.
+            </p>
+          </div>
+
+          <div class="file-card">
+            <h3><span class="file-icon">📄</span> index.html</h3>
+            <p>
+              HTML template with root div for React, meta tags for responsive design, and
+              module script entry point.
+            </p>
+          </div>
+
+          <div class="file-card">
+            <h3><span class="file-icon">🚫</span> .gitignore</h3>
+            <p>
+              Git ignore configuration. Excludes node_modules, build outputs, IDE files, and
+              system files from version control.
+            </p>
+          </div>
+
+          <div class="file-card">
+            <h3><span class="file-icon">🔧</span> setup.sh / setup.bat</h3>
+            <p>
+              Automated setup scripts for macOS/Linux and Windows. Checks prerequisites,
+              installs dependencies, verifies installation.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- App Files -->
+      <div class="section">
+        <h2>🎨 Application Files</h2>
+
+        <div class="file-grid">
+          <div class="file-card">
+            <h3><span class="file-icon">⚛️</span> App.jsx</h3>
+            <p>
+              Main application component. Wraps app with Redux Provider, provides tab
+              navigation between Part 1 and Part 2, header and footer info.
+            </p>
+            <span class="file-size">50 lines</span>
+          </div>
+
+          <div class="file-card">
+            <h3><span class="file-icon">🎨</span> App.css</h3>
+            <p>
+              Application-wide styling. Gradient background, tab navigation, content animation,
+              footer styling, and responsive design.
+            </p>
+            <span class="file-size">150 lines</span>
+          </div>
+
+          <div class="file-card">
+            <h3><span class="file-icon">📍</span> index.js</h3>
+            <p>
+              React DOM entry point. Renders App component into root div with React.StrictMode
+              for additional development checks.
+            </p>
+            <span class="file-size">10 lines</span>
+          </div>
+
+          <div class="file-card">
+            <h3><span class="file-icon">🎨</span> index.css</h3>
+            <p>
+              Global styles including CSS resets, body styling, font setup, and scrollbar
+              customization.
+            </p>
+            <span class="file-size">20 lines</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Commands Section -->
+      <div class="section">
+        <h2>💻 Available Commands</h2>
+
+        <div class="file-grid">
+          <div class="file-card">
+            <h3>Development</h3>
+            <p>
+              <code>npm run dev</code><br />
+              Starts development server with hot reload on localhost:3000
+            </p>
+          </div>
+
+          <div class="file-card">
+            <h3>Production Build</h3>
+            <p>
+              <code>npm run build</code><br />
+              Creates optimized production build in dist/ folder
+            </p>
+          </div>
+
+          <div class="file-card">
+            <h3>Preview Build</h3>
+            <p>
+              <code>npm run preview</code><br />
+              Preview production build locally before deployment
+            </p>
+          </div>
+
+          <div class="file-card">
+            <h3>Linting</h3>
+            <p>
+              <code>npm run lint</code><br />
+              Run ESLint to check code quality and style
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Key Takeaways -->
+      <div class="section">
+        <h2>🎯 Key Takeaways</h2>
+
+        <div class="key-features">
+          <div class="feature">
+            <div class="feature-icon">🛡️</div>
+            <div class="feature-text">
+              <h4>FSM Pattern</h4>
+              <p>Prevent impossible states and make transitions explicit</p>
+            </div>
+          </div>
+          <div class="feature">
+            <div class="feature-icon">⚡</div>
+            <div class="feature-text">
+              <h4>Performance Optimization</h4>
+              <p>Use memoized selectors to avoid unnecessary recalculations</p>
+            </div>
+          </div>
+          <div class="feature">
+            <div class="feature-icon">🔒</div>
+            <div class="feature-text">
+              <h4>Immutability</h4>
+              <p>Safely update state with RTK and Immer</p>
+            </div>
+          </div>
+          <div class="feature">
+            <div class="feature-icon">📁</div>
+            <div class="feature-text">
+              <h4>Code Organization</h4>
+              <p>Use feature-based folder structure for scalability</p>
+            </div>
+          </div>
+          <div class="feature">
+            <div class="feature-icon">🧪</div>
+            <div class="feature-text">
+              <h4>Testability</h4>
+              <p>Pure functions and centralized logic make testing easier</p>
+            </div>
+          </div>
+          <div class="feature">
+            <div class="feature-icon">📚</div>
+            <div class="feature-text">
+              <h4>Professional Standards</h4>
+              <p>Follow best practices for real-world applications</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>
+        <strong>React Advanced - State Management Lab</strong><br />
+        Version 1.0.0 | 2024 | Complete Solution with Full Documentation
+      </p>
+      <p style="margin-top: 1rem; font-size: 0.9rem">
+        📚 Resources: React Docs | Redux Toolkit Docs | Vite Guide | MDN Web Docs
+      </p>
+    </footer>
+  </div>
+</body>
+</html>
