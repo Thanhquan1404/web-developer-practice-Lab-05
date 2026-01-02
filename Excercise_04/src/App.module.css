@@ -1,0 +1,401 @@
+/* ============================================================
+   GLOBAL STYLES
+   ============================================================ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f8f9fa;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* ============================================================
+   CONTAINER & LAYOUT
+   ============================================================ */
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+
+.header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 3rem 1rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  border-radius: 8px;
+}
+
+.header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  opacity: 0.95;
+  margin: 0;
+}
+
+/* ============================================================
+   MAIN CONTENT
+   ============================================================ */
+
+.main {
+  padding: 2rem 0;
+}
+
+/* ============================================================
+   DEMO SECTIONS
+   ============================================================ */
+
+.demoSection {
+  background: white;
+  border-radius: 8px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border-left: 4px solid #667eea;
+}
+
+.demoSection h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.demoSection h3 {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  color: #555;
+}
+
+.demoContent {
+  margin-bottom: 1.5rem;
+}
+
+.description {
+  background-color: #f0f4ff;
+  border-left: 4px solid #667eea;
+  padding: 1rem;
+  border-radius: 4px;
+  margin-bottom: 1.5rem;
+  color: #555;
+}
+
+/* ============================================================
+   TWO COLUMN LAYOUT
+   ============================================================ */
+
+.twoColumn {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 768px) {
+  .twoColumn {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================================
+   DEMO COMPONENTS
+   ============================================================ */
+
+.bombDemo {
+  background: #f9f9f9;
+  border: 2px dashed #ddd;
+  border-radius: 6px;
+  padding: 1.5rem;
+  margin: 1rem 0;
+  min-height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ============================================================
+   INFO BOX
+   ============================================================ */
+
+.infoBox {
+  background-color: #e3f2fd;
+  border-left: 4px solid #2196f3;
+  padding: 1rem;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  color: #1565c0;
+}
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+
+.button {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.buttonPrimary {
+  background-color: #667eea;
+  color: white;
+}
+
+.buttonPrimary:hover {
+  background-color: #5568d3;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.buttonDanger {
+  background-color: #f44336;
+  color: white;
+}
+
+.buttonDanger:hover {
+  background-color: #da190b;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(244, 67, 54, 0.4);
+}
+
+/* ============================================================
+   LISTS
+   ============================================================ */
+
+.testList {
+  list-style: none;
+  padding: 0;
+}
+
+.testList li {
+  padding: 0.5rem 0;
+  color: #555;
+}
+
+.testList li:before {
+  content: '✓ ';
+  color: #4caf50;
+  font-weight: bold;
+  margin-right: 0.5rem;
+}
+
+/* ============================================================
+   CODE BOXES
+   ============================================================ */
+
+.codeBox {
+  background-color: #1e1e1e;
+  border-radius: 6px;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  overflow-x: auto;
+}
+
+.codeBox h3 {
+  color: #4caf50;
+  margin-bottom: 1rem;
+}
+
+.code {
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+  color: #d4d4d4;
+  line-height: 1.5;
+  margin: 0;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.note {
+  color: #ffb74d;
+  font-size: 0.9rem;
+  margin-top: 0.75rem;
+}
+
+/* ============================================================
+   CONCEPT GRID
+   ============================================================ */
+
+.conceptGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.concept {
+  background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+  border: 1px solid #667eea30;
+  border-radius: 8px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.concept:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(102, 126, 234, 0.15);
+  border-color: #667eea50;
+}
+
+.concept h3 {
+  color: #667eea;
+  margin-bottom: 0.75rem;
+}
+
+.concept p {
+  color: #666;
+  font-size: 0.95rem;
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+
+.footer {
+  background-color: #f0f0f0;
+  padding: 2rem 1rem;
+  text-align: center;
+  color: #666;
+  margin-top: 3rem;
+  border-top: 1px solid #ddd;
+}
+
+.footer p {
+  margin: 0;
+}
+
+/* ============================================================
+   RESPONSIVE DESIGN
+   ============================================================ */
+
+@media (max-width: 768px) {
+  .header h1 {
+    font-size: 1.8rem;
+  }
+
+  .header {
+    padding: 2rem 1rem;
+  }
+
+  .demoSection {
+    padding: 1.5rem;
+  }
+
+  .demoSection h2 {
+    font-size: 1.2rem;
+  }
+
+  .conceptGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .code {
+    font-size: 0.8rem;
+  }
+}
+
+/* ============================================================
+   DARK MODE
+   ============================================================ */
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+  }
+
+  .demoSection {
+    background-color: #2a2a2a;
+    border-left-color: #8892c2;
+  }
+
+  .demoSection h2,
+  .demoSection h3 {
+    color: #e0e0e0;
+  }
+
+  .description {
+    background-color: #2a2a4a;
+    border-left-color: #667eea;
+    color: #b0b0d0;
+  }
+
+  .bombDemo {
+    background-color: #1e1e1e;
+    border-color: #444;
+  }
+
+  .infoBox {
+    background-color: #1a3a4a;
+    border-left-color: #4fc3f7;
+    color: #80deea;
+  }
+
+  .testList li {
+    color: #b0b0b0;
+  }
+
+  .concept {
+    background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+    border-color: #667eea30;
+  }
+
+  .footer {
+    background-color: #222;
+    border-top-color: #444;
+    color: #999;
+  }
+}
+
+/* ============================================================
+   HIGH CONTRAST MODE
+   ============================================================ */
+
+@media (prefers-contrast: more) {
+  .demoSection {
+    border-left-width: 6px;
+    border-left-color: #667eea;
+  }
+
+  .button {
+    border: 2px solid currentColor;
+  }
+
+  .buttonPrimary {
+    border-color: #667eea;
+  }
+
+  .buttonDanger {
+    border-color: #f44336;
+  }
+}
