@@ -1,0 +1,167 @@
+/**
+ * Tabs.module.css
+ * 
+ * Styling cho Compound Tabs Component
+ * Sử dụng CSS Modules để tránh class name conflicts
+ */
+
+.tabs-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #fff;
+}
+
+/**
+ * TabsList - Container cho các tab buttons
+ */
+.tabs-list {
+  display: flex;
+  gap: 0;
+  border-bottom: 2px solid #f0f0f0;
+  background-color: #fafafa;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.tabs-list::-webkit-scrollbar {
+  height: 4px;
+}
+
+.tabs-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.tabs-list::-webkit-scrollbar-thumb {
+  background: #bbb;
+  border-radius: 2px;
+}
+
+.tabs-list::-webkit-scrollbar-thumb:hover {
+  background: #999;
+}
+
+/**
+ * Tab - Nút bấm chuyển tab
+ * 
+ * States:
+ * - Default: gray background, black text
+ * - :hover: light gray background
+ * - .active: blue border-bottom, blue text
+ */
+.tab {
+  padding: 12px 20px;
+  border: none;
+  background: none;
+  color: #666;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  position: relative;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -2px;
+}
+
+.tab:hover:not(.active) {
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+/**
+ * Active Tab State
+ */
+.tab.active {
+  color: #1976d2;
+  border-bottom-color: #1976d2;
+  background-color: rgba(25, 118, 210, 0.05);
+}
+
+/**
+ * Focus state (Accessibility)
+ */
+.tab:focus-visible {
+  outline: 2px solid #1976d2;
+  outline-offset: -2px;
+}
+
+/**
+ * TabsPanel - Nội dung của từng tab
+ */
+.tab-panel {
+  padding: 20px;
+  display: none;
+}
+
+/**
+ * Active Panel - Hiển thị khi tab tương ứng active
+ */
+.tab-panel.active {
+  display: block;
+  animation: fadeIn 0.3s ease;
+}
+
+/**
+ * Fade-in animation
+ */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/**
+ * Responsive Design
+ */
+@media (max-width: 768px) {
+  .tab {
+    padding: 10px 14px;
+    font-size: 13px;
+  }
+
+  .tab-panel {
+    padding: 15px;
+  }
+}
+
+/**
+ * Dark Theme Support (Optional)
+ */
+@media (prefers-color-scheme: dark) {
+  .tabs-wrapper {
+    background-color: #1e1e1e;
+    border-color: #333;
+  }
+
+  .tabs-list {
+    background-color: #2a2a2a;
+    border-bottom-color: #333;
+  }
+
+  .tab {
+    color: #bbb;
+  }
+
+  .tab:hover:not(.active) {
+    background-color: #333;
+    color: #e0e0e0;
+  }
+
+  .tab.active {
+    color: #64b5f6;
+    border-bottom-color: #64b5f6;
+    background-color: rgba(100, 181, 246, 0.1);
+  }
+
+  .tab-panel {
+    color: #e0e0e0;
+  }
+}

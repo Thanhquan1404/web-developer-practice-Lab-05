@@ -1,0 +1,253 @@
+/**
+ * Modal.module.css
+ * 
+ * Styling cho Modal Component với React Portals
+ * 
+ * Key Points:
+ * - position: fixed - Để modal luôn nằm trên cùng viewport
+ * - z-index: 1000+ - Đảm bảo backdrop và modal nằm trên các element khác
+ * - Animated: fade-in, scale-in effect
+ */
+
+/**
+ * Backdrop - Lớp mờ nền
+ * 
+ * Full-screen overlay giúp focus attention vào modal
+ * Click vào backdrop sẽ trigger onClose (nếu closeOnBackdropClick = true)
+ */
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeInBackdrop 0.3s ease;
+  backdrop-filter: blur(2px);
+}
+
+/**
+ * Modal Content Container
+ * 
+ * Box chứa nội dung modal
+ * Positioned giữa screen bằng flexbox
+ */
+.modal {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  max-width: 90vw;
+  max-height: 90vh;
+  width: 500px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  animation: slideUpModal 0.3s ease;
+  z-index: 1001;
+}
+
+/**
+ * Modal Header
+ * 
+ * Top section của modal, thường chứa title
+ */
+.header {
+  padding: 24px;
+  border-bottom: 1px solid #f0f0f0;
+  background-color: #fafafa;
+  font-size: 20px;
+  font-weight: 600;
+  color: #333;
+  flex-shrink: 0;
+}
+
+/**
+ * Modal Body
+ * 
+ * Main content area, có scroll nếu vượt quá max-height
+ */
+.body {
+  padding: 24px;
+  flex: 1;
+  overflow-y: auto;
+  color: #666;
+  line-height: 1.6;
+}
+
+/**
+ * Custom scrollbar cho body
+ */
+.body::-webkit-scrollbar {
+  width: 8px;
+}
+
+.body::-webkit-scrollbar-track {
+  background: #f5f5f5;
+}
+
+.body::-webkit-scrollbar-thumb {
+  background: #bbb;
+  border-radius: 4px;
+}
+
+.body::-webkit-scrollbar-thumb:hover {
+  background: #999;
+}
+
+/**
+ * Modal Footer
+ * 
+ * Bottom section, thường chứa action buttons
+ */
+.footer {
+  padding: 16px 24px;
+  border-top: 1px solid #f0f0f0;
+  background-color: #fafafa;
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+/**
+ * ============================================
+ * ANIMATIONS
+ * ============================================
+ */
+
+/**
+ * Fade-in animation cho backdrop
+ */
+@keyframes fadeInBackdrop {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/**
+ * Slide-up animation cho modal
+ * Tạo hiệu ứng từ dưới lên trên
+ */
+@keyframes slideUpModal {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/**
+ * ============================================
+ * RESPONSIVE DESIGN
+ * ============================================
+ */
+
+@media (max-width: 768px) {
+  .modal {
+    width: 95vw;
+    max-height: 95vh;
+    border-radius: 8px;
+  }
+
+  .header {
+    padding: 20px;
+    font-size: 18px;
+  }
+
+  .body {
+    padding: 20px;
+  }
+
+  .footer {
+    padding: 12px 20px;
+    flex-direction: column-reverse;
+  }
+
+  .footer > button {
+    width: 100%;
+  }
+}
+
+/**
+ * ============================================
+ * DARK MODE SUPPORT
+ * ============================================
+ */
+
+@media (prefers-color-scheme: dark) {
+  .modal {
+    background-color: #2a2a2a;
+    color: #e0e0e0;
+  }
+
+  .header {
+    background-color: #1e1e1e;
+    border-bottom-color: #333;
+    color: #e0e0e0;
+  }
+
+  .body {
+    color: #b0b0b0;
+    background-color: #2a2a2a;
+  }
+
+  .body::-webkit-scrollbar-track {
+    background: #333;
+  }
+
+  .body::-webkit-scrollbar-thumb {
+    background: #555;
+  }
+
+  .body::-webkit-scrollbar-thumb:hover {
+    background: #777;
+  }
+
+  .footer {
+    background-color: #1e1e1e;
+    border-top-color: #333;
+  }
+}
+
+/**
+ * ============================================
+ * STATES & FOCUS
+ * ============================================
+ */
+
+/**
+ * Focus management - Đảm bảo keyboard navigation
+ */
+.modal:focus-visible {
+  outline: none;
+}
+
+/**
+ * Prevent text selection trên backdrop
+ */
+.backdrop {
+  user-select: none;
+}
+
+/**
+ * Accessibility: High contrast mode
+ */
+@media (prefers-contrast: more) {
+  .backdrop {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+
+  .modal {
+    border: 2px solid currentColor;
+  }
+}
