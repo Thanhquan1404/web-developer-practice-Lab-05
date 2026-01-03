@@ -1,0 +1,146 @@
+.app-layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.main-header {
+  background-color: rgba(255, 255, 255, 0.95);
+  box-shadow: var(--box-shadow);
+  padding: 24px 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.header-content {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.header-content h1 {
+  color: var(--gray-900);
+  font-size: 2.5rem;
+  margin-bottom: 8px;
+}
+
+.header-content p {
+  color: var(--gray-600);
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.nav-tabs {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--gray-200);
+}
+
+.nav-tab {
+  padding: 12px 24px;
+  background-color: var(--gray-100);
+  color: var(--gray-700);
+  border-radius: 6px 6px 0 0;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: var(--transition);
+  position: relative;
+}
+
+.nav-tab:hover {
+  background-color: var(--gray-200);
+  transform: translateY(-2px);
+}
+
+.nav-tab.active {
+  background-color: var(--primary-color);
+  color: white;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.main-content {
+  flex: 1;
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.content-wrapper {
+  background-color: white;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  padding: 40px;
+  min-height: 500px;
+}
+
+.exercise-title {
+  color: var(--gray-900);
+  font-size: 2rem;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.exercise-icon {
+  font-size: 2.5rem;
+}
+
+.exercise-description {
+  color: var(--gray-600);
+  font-size: 1.05rem;
+  margin-bottom: 28px;
+  line-height: 1.6;
+}
+
+.footer {
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 24px 20px;
+  text-align: center;
+  color: var(--gray-600);
+  border-top: 1px solid var(--gray-200);
+  margin-top: auto;
+}
+
+.footer p {
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .header-content h1 {
+    font-size: 1.8rem;
+  }
+
+  .nav-tabs {
+    gap: 8px;
+  }
+
+  .nav-tab {
+    padding: 10px 16px;
+    font-size: 0.95rem;
+  }
+
+  .main-content {
+    padding: 20px 10px;
+  }
+
+  .content-wrapper {
+    padding: 20px;
+  }
+
+  .exercise-title {
+    font-size: 1.5rem;
+  }
+}

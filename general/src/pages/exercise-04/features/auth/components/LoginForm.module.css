@@ -1,0 +1,108 @@
+.form {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form h2 {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  color: #333;
+  text-align: center;
+}
+
+.errorAlert {
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+  background-color: #fee;
+  border-left: 4px solid #f44;
+  color: #c33;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+.formGroup {
+  margin-bottom: 1.25rem;
+}
+
+.formGroup label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #333;
+  font-size: 0.95rem;
+}
+
+.formGroup input {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  transition: border-color 0.3s ease;
+  box-sizing: border-box;
+}
+
+.formGroup input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+}
+
+.formGroup input:disabled {
+  background-color: #f5f5f5;
+  cursor: not-allowed;
+  color: #999;
+}
+
+.submitButton {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #007bff;
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submitButton:hover:not(:disabled) {
+  background-color: #0056b3;
+}
+
+.submitButton:disabled {
+  background-color: #6c757d;
+  cursor: not-allowed;
+}
+
+.successContainer {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.successMessage {
+  padding: 1.5rem;
+  background-color: #efe;
+  border-left: 4px solid #6f6;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.successMessage h2 {
+  margin: 0 0 0.5rem 0;
+  color: #393;
+  font-size: 1.5rem;
+}
+
+.successMessage p {
+  margin: 0;
+  color: #666;
+  font-size: 0.95rem;
+}

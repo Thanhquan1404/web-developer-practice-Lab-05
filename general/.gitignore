@@ -1,0 +1,11 @@
+.env.local
+node_modules/
+dist/
+coverage/
+.DS_Store
+*.log
+*.swp
+.vscode/
+.idea/
+.vercel
+.env*.local

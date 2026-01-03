@@ -1,0 +1,196 @@
+/* UserProfile Component Styles */
+
+.user-profile {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+    sans-serif;
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 1rem;
+}
+
+/* Loading State */
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #3498db;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loading-text {
+  margin-top: 1rem;
+  color: #666;
+  font-size: 1rem;
+}
+
+/* Resolved State */
+.resolved-container {
+  padding: 2rem;
+}
+
+.profile-card {
+  background: #f8f9fa;
+  border-radius: 12px;
+  padding: 2rem;
+  display: flex;
+  gap: 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.profile-info {
+  flex: 1;
+}
+
+.name {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.5rem;
+  color: #2c3e50;
+}
+
+.role {
+  margin: 0 0 1rem 0;
+  color: #3498db;
+  font-weight: 500;
+}
+
+.profile-info p {
+  margin: 0.75rem 0;
+  color: #555;
+  font-size: 0.95rem;
+}
+
+.profile-info strong {
+  color: #2c3e50;
+  font-weight: 600;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  margin-top: 1rem;
+  font-weight: 500;
+}
+
+.status-badge.success {
+  background: #d4edda;
+  color: #155724;
+}
+
+/* Error State */
+.error-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+  padding: 2rem;
+}
+
+.error-card {
+  background: #fff3cd;
+  border: 2px solid #ffc107;
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+  max-width: 400px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.error-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.error-title {
+  margin: 0 0 1rem 0;
+  font-size: 1.3rem;
+  color: #856404;
+}
+
+.error-message {
+  margin: 0 0 1.5rem 0;
+  color: #856404;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.retry-button {
+  background: #ffc107;
+  border: none;
+  color: #333;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.retry-button:hover {
+  background: #ffb300;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 193, 7, 0.3);
+}
+
+.retry-button:active {
+  transform: translateY(0);
+}
+
+/* Idle State */
+.idle-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+  color: #999;
+  font-size: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .profile-card {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .avatar {
+    width: 100px;
+    height: 100px;
+  }
+
+  .profile-info {
+    text-align: center;
+  }
+
+  .error-card {
+    padding: 1.5rem;
+  }
+}

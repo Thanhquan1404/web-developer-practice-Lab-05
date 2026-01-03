@@ -1,0 +1,93 @@
+/**
+ * LoadingSpinner Styles
+ * 
+ * Features:
+ * - Smooth CSS animation for spinner
+ * - Responsive layout
+ * - Professional appearance
+ */
+
+.loading-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  width: 100%;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.spinner-wrapper {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 40px;
+}
+
+/* Spinner SVG Animation */
+.spinner {
+  width: 60px;
+  height: 60px;
+  animation: spin 2s linear infinite;
+}
+
+.spinner-circle {
+  stroke: url(#gradient);
+  stroke-linecap: round;
+  animation: strokeAnimation 1.5s ease-in-out infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes strokeAnimation {
+  0% {
+    stroke-dasharray: 0 188;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 118 188;
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dasharray: 118 188;
+    stroke-dashoffset: 188;
+  }
+}
+
+/* Text */
+.loading-text {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+}
+
+.loading-subtext {
+  font-size: 14px;
+  color: #666;
+  margin: 0;
+  opacity: 0.8;
+}
+
+/* Dark theme support */
+@media (prefers-color-scheme: dark) {
+  .loading-container {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  }
+
+  .loading-text {
+    color: #fff;
+  }
+
+  .loading-subtext {
+    color: #ccc;
+  }
+}
